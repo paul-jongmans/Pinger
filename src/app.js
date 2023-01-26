@@ -24,7 +24,7 @@ const scanDevices = (devices) => {
         ping.promise.probe(device).then(
             //ping the device
             (response) => {
-                fs.appendFileSync('ping.csv', new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds() + ',' + new Date().getDate() + '.' + new Date().getMonth() + '.' + new Date().getFullYear() + ',' + response.host + ',' + response.time + ',' + (response.alive ? 'alive' : 'dead') + '\n'); // write the current time, date, the host, the time taken to complete the ping, and the status (alive or dead) of the host to the "ping.csv" file
+                fs.appendFileSync('ping.csv', new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds() + ',' + new Date().getDate() + '.' + new Date().getMonth() + '.' + new Date().getFullYear() + ',' + response.host + ',' + response.time + ',' + (response.alive ? 'online' : 'offline') + '\n'); // write the current time, date, the host, the time taken to complete the ping, and the status (alive or dead) of the host to the "ping.csv" file
             },
             {
                 timeout: 10, //set the timeout to 10 seconds
